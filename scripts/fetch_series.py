@@ -7,7 +7,7 @@ import requests
 # least 90 days, confirmed by real testing) -- no need to wait weeks for a
 # scheduled pipeline to accumulate data, unlike this course's other real-time-
 # history projects (TD2, TP2).
-LAT, LON = 48.0061, 0.1996  # Le Mans
+LAT, LON = -33.8688, 151.2093  # Sydney, Australia (Stage 6: Southern Hemisphere)
 PAST_DAYS = 90
 URL = "https://air-quality-api.open-meteo.com/v1/air-quality"
 

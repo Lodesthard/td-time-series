@@ -114,9 +114,11 @@ def main():
         f"Projection covers {PROJECT_STEPS} days ahead from {len(cleaned)} days of "
         f"real CO2 history ({len(gap_ranges)} known gap(s) in the source data). "
         "This is a straight line through one seasonal window of real atmospheric "
-        "data -- CO2 has a well-known yearly cycle (lower in the Northern "
-        "Hemisphere's growing season, higher in winter), so a trend measured over "
-        "90 summer/autumn days should NOT be extrapolated across season boundaries. "
+        f"data ({cleaned[0]['date']} to {cleaned[-1]['date']}) -- CO2 has a "
+        "well-known yearly cycle (lower during the local growing season, higher in "
+        "the local winter; the two hemispheres are in opposite phase), so a trend "
+        "measured over one 90-day window should NOT be extrapolated across season "
+        "boundaries. "
         "Trust this projection only a few days out."
     )
     print(f"\nHonesty note: {honest_note}")

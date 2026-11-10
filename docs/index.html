@@ -13,11 +13,13 @@
   #honesty { padding: 0.8rem 1rem; border: 2px solid #c46e0a; border-radius: 8px; background: #faf3e8; margin: 1rem 0; }
   canvas { margin-top: 1.5rem; }
   #updated { color: #666; font-size: 0.85rem; }
+  .stage6 { font-size: 0.9rem; color: #444; border-left: 3px solid #0d7c9e; padding-left: 0.8rem; }
 </style>
 </head>
 <body>
   <h1>CO2 time series lab</h1>
-  <p>Real atmospheric CO2 (ppm) for Le Mans, from Open-Meteo's Air Quality API — raw values, a rolling mean, exponential smoothing, and a linear-trend projection, all computed by <code>scripts/analyze_series.py</code> from <code>data/series.csv</code>.</p>
+  <p>Real atmospheric CO2 (ppm) for Sydney, Australia, from Open-Meteo's Air Quality API — raw values, a rolling mean, exponential smoothing, and a linear-trend projection, all computed by <code>scripts/analyze_series.py</code> from <code>data/series.csv</code>.</p>
+  <p class="stage6"><strong>Stage 6 extension:</strong> the pipeline was first run for Le Mans (48.0061, 0.1996): 90 days from 2026-08-12 to 2026-11-09, trend <strong>+0.165 ppm/day</strong> (Northern Hemisphere autumn, CO2 rising toward its winter peak). Only the location line in <code>fetch_series.py</code> was changed to Sydney (-33.8688, 151.2093), Southern Hemisphere spring: same window, trend <strong>−0.075 ppm/day</strong>. The Le Mans version is in the commit history (<a href="https://github.com/Lodesthard/td-time-series/tree/e8217ccf7e0ad136d6b43adddceb843a9fe03e8a">e8217cc</a>).</p>
   <div class="kpis" id="kpis">Loading...</div>
   <div id="honesty"></div>
   <canvas id="seriesChart" height="320"></canvas>
@@ -74,7 +76,7 @@ fetch('data/series_analysis.json')
       data: { labels: allLabels, datasets },
       options: {
         plugins: {
-          title: { display: true, text: `Real atmospheric CO2 (${unit}), Le Mans — raw → cleaned → smoothed → projected (dashed = beyond observed data)` },
+          title: { display: true, text: `Real atmospheric CO2 (${unit}), Sydney — raw → cleaned → smoothed → projected (dashed = beyond observed data)` },
           tooltip: { mode: 'index', intersect: false },
         },
         scales: {

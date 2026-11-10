@@ -8,6 +8,7 @@ import requests
 # scheduled pipeline to accumulate data, unlike this course's other real-time-
 # history projects (TD2, TP2).
 LAT, LON = -33.8688, 151.2093  # Sydney, Australia (Stage 6: Southern Hemisphere)
+PLACE = "Sydney"  # label only -- used in the console message below
 PAST_DAYS = 90
 URL = "https://air-quality-api.open-meteo.com/v1/air-quality"
 
@@ -54,7 +55,7 @@ def aggregate_to_daily(times, values):
     return rows
 
 def main():
-    print(f"Fetching {PAST_DAYS} days of real hourly CO2 (ppm) for Le Mans "
+    print(f"Fetching {PAST_DAYS} days of real hourly CO2 (ppm) for {PLACE} "
           f"({LAT}, {LON}) from Open-Meteo Air Quality API...")
     data = fetch_hourly_co2()
     times = data["hourly"]["time"]
